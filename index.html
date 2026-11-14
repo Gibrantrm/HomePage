@@ -73,13 +73,13 @@ nav ul a:hover{color:var(--text)}
 header{position:relative;min-height:100dvh;display:grid;place-items:end start;isolation:isolate}
 .hero-img{position:absolute;inset:0;z-index:-1;overflow:hidden}
 .hero-img img{width:100%;height:100%;object-fit:cover;will-change:transform}
-.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,20,.42),rgba(14,14,20,.08) 45%,rgba(14,14,20,.7) 100%)}
-.hero-panel{margin:0 1.5rem clamp(2rem,6vh,4rem);padding:clamp(1.6rem,4vw,2.6rem);max-width:680px;border-radius:28px}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,20,.4),rgba(14,14,20,.05) 45%,rgba(14,14,20,.85) 100%)}
+.hero-panel{margin:0 1.5rem clamp(2.5rem,7vh,4.5rem);max-width:680px}
 .hero-panel .label{margin-bottom:.8rem}
-h1{font-size:clamp(2.5rem,5.6vw,4.3rem)}
+h1{font-size:clamp(2.5rem,5.6vw,4.3rem);text-shadow:0 2px 24px rgba(0,0,0,.45)}
 h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
 h1 .w span{display:inline-block;transform:translateY(110%)}
-.hero-sub{max-width:50ch;margin:1rem 0 1.6rem;color:#D8D5E4;font-size:1.03rem}
+.hero-sub{max-width:50ch;margin:1rem 0 1.6rem;color:#E4E1EE;font-size:1.03rem;text-shadow:0 1px 12px rgba(0,0,0,.55)}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .hero-price{font-weight:700;font-size:1.3rem;letter-spacing:-.02em;background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
 @media(min-width:900px){.hero-panel{margin-left:max(1.5rem,calc((100vw - 1280px)/2 + 1.5rem))}}
@@ -182,7 +182,7 @@ footer a{background:var(--iri);-webkit-background-clip:text;background-clip:text
 
 <header id="inicio">
   <div class="hero-img"><img src="img/fachada.webp" alt="Fachada de Punta Peñasco 154 al atardecer" fetchpriority="high"></div>
-  <div class="hero-panel glass">
+  <div class="hero-panel">
     <p class="label">Privada Punta Peñasco · Lomas Punta del Este · León, Gto.</p>
     <h1 id="headline">Casa nueva, una planta, hecha para vivirse</h1>
     <p class="hero-sub">Residencia de estreno en privada: 2 recámaras y estudio, cocina con isla de granito, carpintería de nogal y jardín interior. Lista para habitarse.</p>
