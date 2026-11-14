@@ -8,134 +8,147 @@
 <meta property="og:title" content="Punta Peñasco 154 — Casa nueva premium">
 <meta property="og:description" content="Una planta · 171.25 m² de terreno · 2 recámaras + estudio · Privada Punta Peñasco, Lomas Punta del Este.">
 <meta property="og:image" content="img/fachada.webp">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315120E'/%3E%3Cpath d='M16 6 6 14v12h20V14z' fill='none' stroke='%23D4AF37' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E0E14'/%3E%3Cpath d='M16 7 7 14v11h18V14z' fill='none' stroke='%23A5B4FC' stroke-width='1.6'/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="img/fachada.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root{
-  --bg:#15120E; --text:#FAF0E6; --surface:#211C16; --stone:#9A8F80;
-  --input:#2B241C; --gold:#D4AF37; --blush:#E8C4B8; --ok:#6B7B3A;
-  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  --bg:#0E0E14; --text:#F4F2F8; --muted:#9A98A8;
+  --glass:rgba(255,255,255,.055); --glass-2:rgba(255,255,255,.085);
+  --stroke:rgba(255,255,255,.12); --stroke-hi:rgba(255,255,255,.28);
+  --iri:linear-gradient(120deg,#7DD3FC 0%,#C4B5FD 45%,#F9A8D4 100%);
+  --sans:"Inter",system-ui,sans-serif;
+  --blur:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1280px;margin-inline:auto;padding-inline:1.5rem}
-section{padding-block:clamp(5rem,10vw,10rem)}
-h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.08}
-h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
-.label{font-size:.8125rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--stone)}
-.kicker{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-.kicker .num{font-family:var(--serif);color:var(--gold);font-size:1.1rem}
-.kicker::after{content:"";height:1px;width:3rem;background:linear-gradient(90deg,var(--gold),transparent)}
+section{padding-block:clamp(5rem,10vw,9rem);position:relative}
+h1,h2{font-weight:700;letter-spacing:-.035em;line-height:1.05}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:1rem}
+.label{font-size:.8125rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grad-text{background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- Orbes iridiscentes de fondo ---------- */
+.orbs{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.orb{position:absolute;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.16;will-change:transform}
+.o1{background:#38BDF8;top:-18vmax;left:-10vmax;animation:drift1 26s ease-in-out infinite alternate}
+.o2{background:#A78BFA;bottom:-20vmax;right:-12vmax;animation:drift2 32s ease-in-out infinite alternate}
+.o3{background:#F472B6;top:40%;left:55%;width:30vmax;height:30vmax;opacity:.1;animation:drift3 38s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(8vmax,6vmax) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-7vmax,-5vmax) scale(1.08)}}
+@keyframes drift3{to{transform:translate(-6vmax,4vmax)}}
+
+/* ---------- Glass base ---------- */
+.glass{background:var(--glass);border:1px solid var(--stroke);backdrop-filter:blur(var(--blur)) saturate(1.5);-webkit-backdrop-filter:blur(var(--blur)) saturate(1.5);border-radius:24px;position:relative}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,var(--stroke-hi),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 
 /* ---------- Nav ---------- */
-nav{position:fixed;inset:0 0 auto;z-index:100;background:rgba(21,18,14,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(250,240,230,.07)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:var(--serif);font-weight:600;font-size:1.2rem;letter-spacing:-.03em}
-.brand span{color:var(--gold)}
-nav ul{display:flex;gap:2rem;list-style:none}
-nav ul a{font-size:.875rem;font-weight:500;color:var(--stone);transition:color .2s}
+nav{position:fixed;top:14px;left:0;right:0;z-index:100}
+nav .bar{max-width:1060px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;height:60px;padding-inline:1.5rem;border-radius:9999px;background:rgba(14,14,20,.55);border:1px solid var(--stroke);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6)}
+@media(max-width:1100px){nav .bar{margin-inline:1rem}}
+.brand{font-weight:700;letter-spacing:-.03em;font-size:1.05rem}
+.brand span{background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav ul a{font-size:.875rem;font-weight:500;color:var(--muted);transition:color .2s}
 nav ul a:hover{color:var(--text)}
 @media(max-width:860px){nav ul{display:none}}
 
 /* ---------- Botones ---------- */
-.btn{position:relative;display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:#15120E;font:600 .9375rem var(--sans);padding:.9rem 1.9rem;border-radius:9999px;border:0;cursor:pointer;transition:filter .2s,transform .2s,box-shadow .2s;isolation:isolate}
-.btn:hover{filter:brightness(1.06);box-shadow:0 6px 24px rgba(212,175,55,.25)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:.5rem;font:600 .9375rem var(--sans);padding:.9rem 1.8rem;border-radius:9999px;border:1px solid var(--stroke-hi);cursor:pointer;color:var(--text);background:var(--glass-2);backdrop-filter:blur(12px) saturate(1.5);-webkit-backdrop-filter:blur(12px) saturate(1.5);transition:transform .2s,box-shadow .25s,background .25s;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.22),transparent 45%);z-index:-1}
+.btn:hover{background:rgba(255,255,255,.14);box-shadow:0 8px 32px rgba(167,139,250,.25);transform:translateY(-1px)}
 .btn:active{transform:translateY(1px)}
-.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(154,143,128,.5)}
-.btn-ghost:hover{background:var(--surface);box-shadow:none}
-/* border beam en hover/focus */
-.beam{position:relative}
-.beam::before{content:"";position:absolute;inset:-2px;border-radius:9999px;padding:1.5px;background:conic-gradient(from var(--angle,0deg),transparent 70%,var(--gold),transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;z-index:-1}
-.beam:hover::before,.beam:focus-visible::before{opacity:1;animation:beam 3s linear infinite}
-@property --angle{syntax:"<angle>";initial-value:0deg;inherits:false}
-@keyframes beam{to{--angle:360deg}}
+.btn-primary{border:0;color:#0E0E14;background:#fff}
+.btn-primary::before{content:"";position:absolute;inset:-2px;border-radius:9999px;background:var(--iri);z-index:-2;filter:blur(10px);opacity:0;transition:opacity .3s}
+.btn-primary:hover{background:#fff}
+.btn-primary:hover::before{opacity:.8}
 
 /* ---------- Hero ---------- */
 header{position:relative;min-height:100dvh;display:grid;place-items:end start;isolation:isolate}
 .hero-img{position:absolute;inset:0;z-index:-1;overflow:hidden}
 .hero-img img{width:100%;height:100%;object-fit:cover;will-change:transform}
-.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,18,14,.35) 0%,rgba(21,18,14,.05) 40%,rgba(21,18,14,.88) 100%)}
-.hero-content{padding-block:clamp(6rem,12vh,9rem) clamp(3rem,8vh,5rem)}
-.hero-content .label{margin-bottom:1rem}
-h1{font-size:clamp(3rem,7vw,5.5rem);text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,20,.42),rgba(14,14,20,.08) 45%,rgba(14,14,20,.7) 100%)}
+.hero-panel{margin:0 1.5rem clamp(2rem,6vh,4rem);padding:clamp(1.6rem,4vw,2.6rem);max-width:680px;border-radius:28px}
+.hero-panel .label{margin-bottom:.8rem}
+h1{font-size:clamp(2.5rem,5.6vw,4.3rem)}
 h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
 h1 .w span{display:inline-block;transform:translateY(110%)}
-.hero-sub{max-width:46ch;margin:1.25rem 0 2rem;color:#e9ddcf;font-size:1.0625rem;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero-sub{max-width:50ch;margin:1rem 0 1.6rem;color:#D8D5E4;font-size:1.03rem}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-.hero-price{font-family:var(--serif);font-size:1.5rem;color:var(--gold)}
-.scroll-hint{position:absolute;right:1.5rem;bottom:1.5rem;color:var(--stone);font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.7}
+.hero-price{font-weight:700;font-size:1.3rem;letter-spacing:-.02em;background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(min-width:900px){.hero-panel{margin-left:max(1.5rem,calc((100vw - 1280px)/2 + 1.5rem))}}
 
-/* ---------- Residencia / cifras ---------- */
+/* ---------- Kicker ---------- */
+.kicker{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.kicker .num{font-weight:700;font-size:.9rem;background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker::after{content:"";height:1px;width:3rem;background:linear-gradient(90deg,rgba(196,181,253,.8),transparent)}
+
+/* ---------- Residencia ---------- */
 .res-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,6rem);align-items:start}
-.res-text p{color:#d9cdbd;max-width:62ch}
+.res-text p{color:#C9C6D6;max-width:62ch}
 .res-text p+p{margin-top:1rem}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(250,240,230,.08);border:1px solid rgba(250,240,230,.08)}
-.stat{background:var(--surface);padding:1.6rem 1.4rem}
-.stat b{display:block;font-family:var(--serif);font-weight:600;font-size:2rem;color:var(--text);font-variant-numeric:tabular-nums}
-.stat small{color:var(--stone);font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.stat{padding:1.5rem 1.4rem;border-radius:20px}
+.stat b{display:block;font-weight:700;font-size:1.9rem;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat small{color:var(--muted);font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase}
 .espacios{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.6rem}
-.espacios li{list-style:none;border:1px solid rgba(154,143,128,.35);border-radius:2px;padding:.4rem .9rem;font-size:.875rem;color:#d9cdbd}
+.espacios li{list-style:none;border:1px solid var(--stroke);background:var(--glass);backdrop-filter:blur(8px);border-radius:9999px;padding:.45rem 1rem;font-size:.875rem;color:#D8D5E4}
 @media(max-width:860px){.res-grid{grid-template-columns:1fr}}
 
 /* ---------- Galería ---------- */
-.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem}
-.gal figure{position:relative;overflow:hidden;border-radius:2px;cursor:pointer;margin:0}
-.gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.gal figure:hover img{transform:scale(1.04)}
-.gal figcaption{position:absolute;inset:auto 0 0;padding:.9rem 1rem .7rem;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:#f1e7d8;background:linear-gradient(0deg,rgba(21,18,14,.75),transparent);opacity:0;transition:opacity .3s}
-.gal figure:hover figcaption{opacity:1}
-.g-a{grid-column:span 4;}.g-a img{aspect-ratio:16/9}
-.g-b{grid-column:span 2}.g-c{grid-column:span 2}.g-d{grid-column:span 2}.g-e{grid-column:span 2}
-.g-f{grid-column:span 3}.g-f img{aspect-ratio:3/2}
-.g-g{grid-column:span 3}.g-g img{aspect-ratio:3/2}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem}
+.gal figure{position:relative;overflow:hidden;border-radius:20px;cursor:pointer;margin:0;border:1px solid var(--stroke)}
+.gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.045)}
+.gal figcaption{position:absolute;left:.7rem;bottom:.7rem;padding:.4rem .9rem;font-size:.78rem;font-weight:500;letter-spacing:.04em;color:#fff;border-radius:9999px;background:rgba(14,14,20,.45);border:1px solid var(--stroke);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.gal figure:hover figcaption{opacity:1;transform:none}
+.g-a{grid-column:span 4}.g-a img{aspect-ratio:16/9}
+.g-b,.g-c,.g-d,.g-e{grid-column:span 2}
+.g-f,.g-g{grid-column:span 3}.g-f img,.g-g img{aspect-ratio:3/2}
 @media(max-width:860px){.gal{grid-template-columns:1fr 1fr}.gal [class^=g-]{grid-column:span 2}}
-/* lightbox */
-dialog{border:0;background:rgba(21,18,14,.92);max-width:100vw;max-height:100dvh;width:100vw;height:100dvh;padding:2rem;z-index:300}
-dialog img{margin:auto;max-height:calc(100dvh - 4rem);max-width:100%;object-fit:contain}
+dialog{border:0;background:rgba(14,14,20,.9);backdrop-filter:blur(12px);max-width:100vw;max-height:100dvh;width:100vw;height:100dvh;padding:2rem;z-index:300}
+dialog img{margin:auto;max-height:calc(100dvh - 4rem);max-width:100%;object-fit:contain;border-radius:16px}
 dialog button{position:fixed;top:1rem;right:1.25rem;background:none;border:0;color:var(--text);font-size:2rem;cursor:pointer}
 
 /* ---------- Amenidades ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
-.card{--mx:50%;--my:50%;position:relative;background:var(--surface);border:1px solid rgba(250,240,230,.08);border-radius:2px;padding:1.8rem 1.5rem;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.3)}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(212,175,55,.12),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
-.card:hover::before{opacity:1}
-.card svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.5;margin-bottom:1rem}
-.card h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin-bottom:.4rem}
-.card p{color:var(--stone);font-size:.9375rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.card{--mx:50%;--my:50%;padding:1.8rem 1.5rem;border-radius:22px;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(400px circle at var(--mx) var(--my),rgba(196,181,253,.14),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::after{opacity:1}
+.card svg{width:26px;height:26px;stroke:url(#iriGrad);stroke-width:1.5;fill:none;margin-bottom:1rem}
+.card h3{font-weight:600;letter-spacing:-.02em;font-size:1.1rem;margin-bottom:.4rem}
+.card p{color:var(--muted);font-size:.9375rem}
 @media(max-width:860px){.cards{grid-template-columns:1fr}}
 
 /* ---------- Ubicación ---------- */
 .ubi{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.ubi .map{position:relative}
-.ubi iframe{width:100%;aspect-ratio:4/3;border:0;display:block;filter:invert(.92) hue-rotate(180deg) saturate(.45) contrast(.92) brightness(.95)}
-.ubi .map::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 48px 10px var(--bg)}
-.ubi p{color:#d9cdbd;max-width:50ch}
+.ubi p{color:#C9C6D6;max-width:50ch}
+.ubi .map{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--stroke)}
+.ubi iframe{width:100%;aspect-ratio:4/3;border:0;display:block;filter:invert(.92) hue-rotate(180deg) saturate(.5) contrast(.92) brightness(.95)}
+.ubi .map::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 48px 10px var(--bg);border-radius:inherit}
 @media(max-width:860px){.ubi{grid-template-columns:1fr}}
 
 /* ---------- Contacto ---------- */
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
-.contact .lead{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;max-width:22ch}
-.wa{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.5rem}
-form{display:grid;gap:1.1rem}
-form label{display:grid;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--stone)}
-form input,form textarea{background:var(--input);border:1px solid rgba(154,143,128,.3);border-radius:2px;padding:.8rem .9rem;color:var(--text);font:400 1rem var(--sans)}
-form input:focus-visible,form textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.form-ok{display:none;color:var(--ok);background:rgba(107,123,58,.12);border:1px solid rgba(107,123,58,.4);border-radius:2px;padding:.9rem 1rem}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.contact .lead{font-weight:700;letter-spacing:-.03em;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.15;max-width:22ch}
+.wa{margin-top:1.5rem}
+form{display:grid;gap:1.1rem;padding:clamp(1.4rem,3vw,2rem);border-radius:24px}
+form label{display:grid;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--muted)}
+form input,form textarea{background:rgba(255,255,255,.06);border:1px solid var(--stroke);border-radius:12px;padding:.8rem .9rem;color:var(--text);font:400 1rem var(--sans)}
+form input:focus-visible,form textarea:focus-visible{outline:2px solid #C4B5FD;outline-offset:2px}
+.form-ok{display:none;color:#86EFAC;background:rgba(134,239,172,.08);border:1px solid rgba(134,239,172,.3);border-radius:12px;padding:.9rem 1rem}
 @media(max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* ---------- Footer ---------- */
-footer{border-top:1px solid rgba(250,240,230,.08);padding-block:2.5rem;color:var(--stone);font-size:.875rem}
+footer{border-top:1px solid var(--stroke);padding-block:2.5rem;color:var(--muted);font-size:.875rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-
-/* separador kintsugi */
-.kin{height:34px;margin:0 auto;max-width:1280px;padding-inline:1.5rem}
-.kin svg{width:100%;height:100%;display:block}
+footer a{background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
 
 /* reveals */
 .rv{opacity:0;transform:translateY(16px)}
@@ -143,14 +156,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .rv{opacity:1!important;transform:none!important}
   h1 .w span{transform:none!important}
   .hero-img img{transform:none!important}
+  .orb{animation:none!important}
   *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" aria-hidden="true"><defs><linearGradient id="iriGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7DD3FC"/><stop offset=".5" stop-color="#C4B5FD"/><stop offset="1" stop-color="#F9A8D4"/></linearGradient></defs></svg>
+
+<div class="orbs" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+
 <nav>
-  <div class="wrap">
+  <div class="bar">
     <a class="brand" href="#inicio">Punta Peñasco <span>154</span></a>
     <ul>
       <li><a href="#residencia">La residencia</a></li>
@@ -158,29 +176,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <li><a href="#amenidades">Amenidades</a></li>
       <li><a href="#ubicacion">Ubicación</a></li>
     </ul>
-    <a class="btn beam" href="#contacto">Agendar visita</a>
+    <a class="btn btn-primary" href="#contacto">Agendar visita</a>
   </div>
 </nav>
 
 <header id="inicio">
   <div class="hero-img"><img src="img/fachada.webp" alt="Fachada de Punta Peñasco 154 al atardecer" fetchpriority="high"></div>
-  <div class="wrap hero-content">
+  <div class="hero-panel glass">
     <p class="label">Privada Punta Peñasco · Lomas Punta del Este · León, Gto.</p>
     <h1 id="headline">Casa nueva, una planta, hecha para vivirse</h1>
     <p class="hero-sub">Residencia de estreno en privada: 2 recámaras y estudio, cocina con isla de granito, carpintería de nogal y jardín interior. Lista para habitarse.</p>
     <div class="hero-cta">
-      <a class="btn beam" href="https://wa.me/524774064268?text=Hola%2C%20me%20interesa%20la%20casa%20de%20Punta%20Pe%C3%B1asco%20154%2C%20%C2%BFpodemos%20agendar%20una%20visita%3F" target="_blank" rel="noopener">Agendar visita</a>
+      <a class="btn btn-primary" href="https://wa.me/524774064268?text=Hola%2C%20me%20interesa%20la%20casa%20de%20Punta%20Pe%C3%B1asco%20154%2C%20%C2%BFpodemos%20agendar%20una%20visita%3F" target="_blank" rel="noopener">Agendar visita</a>
       <span class="hero-price">$4,500,000 MXN</span>
     </div>
   </div>
-  <span class="scroll-hint">Desliza</span>
 </header>
 
 <section id="residencia">
   <div class="wrap res-grid">
     <div class="res-text rv">
       <div class="kicker"><span class="num">01</span><span class="label">La residencia</span></div>
-      <h2>Una planta, cada espacio en su lugar</h2>
+      <h2>Una planta, <span class="grad-text">cada espacio en su lugar</span></h2>
       <p>Obra nueva en la Privada Punta Peñasco, dentro de Lomas Punta del Este. La casa se desarrolla en un solo nivel: recibidor, sala y comedor abiertos a la cocina-desayunador con isla de granito, estudio independiente y dos recámaras — la principal con vestidor y baño completo.</p>
       <p>La carpintería de nogal recorre toda la casa, los pisos son de porcelanato formato grande y el jardín interior mete luz natural a las áreas comunes. Terraza, cuarto de lavado y cochera techada para dos autos completan el programa.</p>
       <ul class="espacios">
@@ -188,17 +205,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       </ul>
     </div>
     <div class="stats rv">
-      <div class="stat"><b>171.25</b><small>m² de terreno</small></div>
-      <div class="stat"><b>148.10</b><small>m² construidos</small></div>
-      <div class="stat"><b>2+1</b><small>recámaras + estudio</small></div>
-      <div class="stat"><b>3</b><small>baños completos</small></div>
-      <div class="stat"><b>1</b><small>planta</small></div>
-      <div class="stat"><b>2</b><small>autos techados</small></div>
+      <div class="stat glass"><b>171.25</b><small>m² de terreno</small></div>
+      <div class="stat glass"><b>148.10</b><small>m² construidos</small></div>
+      <div class="stat glass"><b>2+1</b><small>recámaras + estudio</small></div>
+      <div class="stat glass"><b>3</b><small>baños completos</small></div>
+      <div class="stat glass"><b>1</b><small>planta</small></div>
+      <div class="stat glass"><b>2</b><small>autos techados</small></div>
     </div>
   </div>
 </section>
-
-<div class="kin" aria-hidden="true"><svg viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0 15 C 180 11, 320 20, 500 15 S 860 9, 1020 16 S 1150 14, 1200 15" stroke="#D4AF37" stroke-width="1" fill="none" opacity=".55"/></svg></div>
 
 <section id="galeria">
   <div class="wrap">
@@ -221,12 +236,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <div class="kicker rv"><span class="num">03</span><span class="label">Amenidades y equipamiento</span></div>
     <h2 class="rv">Lista para habitarse</h2>
     <div class="cards">
-      <div class="card rv"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg><h3>Privada residencial</h3><p>Dentro de la Privada Punta Peñasco, en Lomas Punta del Este: una zona consolidada y tranquila al oriente de León.</p></div>
-      <div class="card rv"><svg viewBox="0 0 24 24"><path d="M4 15h16M6 15V9a6 6 0 0 1 12 0v6M9 19h6"/></svg><h3>Cocina equipada</h3><p>Parrilla, campana y horno de gas, con isla y cubiertas de granito, alacena y carpintería de nogal.</p></div>
-      <div class="card rv"><svg viewBox="0 0 24 24"><path d="M12 3v3M5 7l2 2M19 7l-2 2M3 13h18M7 13a5 5 0 0 1 10 0M8 21h8"/></svg><h3>Agua garantizada</h3><p>Cisterna con bomba sumergible y tanque hidroneumático: presión constante en los 3 baños, todo el año.</p></div>
-      <div class="card rv"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg><h3>Servicios completos</h3><p>Agua de SAPAL, electricidad CFE y boiler eléctrico. Casa nueva: estrenas sin pendientes ni remodelaciones.</p></div>
-      <div class="card rv"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M15 9h.01M15 13h.01"/></svg><h3>Una sola planta</h3><p>Sin escaleras: ideal para vivir cómodo hoy y para el largo plazo. 148.10 m² construidos bien distribuidos.</p></div>
-      <div class="card rv"><svg viewBox="0 0 24 24"><path d="M12 22s8-5.3 8-12a8 8 0 1 0-16 0c0 6.7 8 12 8 12zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg><h3>Jardín interior y terraza</h3><p>Luz natural todo el día, muro de piedra y pasto: un respiro privado al centro de la casa.</p></div>
+      <div class="card glass rv"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg><h3>Privada residencial</h3><p>Dentro de la Privada Punta Peñasco, en Lomas Punta del Este: una zona consolidada y tranquila al oriente de León.</p></div>
+      <div class="card glass rv"><svg viewBox="0 0 24 24"><path d="M4 15h16M6 15V9a6 6 0 0 1 12 0v6M9 19h6"/></svg><h3>Cocina equipada</h3><p>Parrilla, campana y horno de gas, con isla y cubiertas de granito, alacena y carpintería de nogal.</p></div>
+      <div class="card glass rv"><svg viewBox="0 0 24 24"><path d="M12 3v3M5 7l2 2M19 7l-2 2M3 13h18M7 13a5 5 0 0 1 10 0M8 21h8"/></svg><h3>Agua garantizada</h3><p>Cisterna con bomba sumergible y tanque hidroneumático: presión constante en los 3 baños, todo el año.</p></div>
+      <div class="card glass rv"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg><h3>Servicios completos</h3><p>Agua de SAPAL, electricidad CFE y boiler eléctrico. Casa nueva: estrenas sin pendientes ni remodelaciones.</p></div>
+      <div class="card glass rv"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M15 9h.01M15 13h.01"/></svg><h3>Una sola planta</h3><p>Sin escaleras: ideal para vivir cómodo hoy y para el largo plazo. 148.10 m² construidos bien distribuidos.</p></div>
+      <div class="card glass rv"><svg viewBox="0 0 24 24"><path d="M12 22s8-5.3 8-12a8 8 0 1 0-16 0c0 6.7 8 12 8 12zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg><h3>Jardín interior y terraza</h3><p>Luz natural todo el día, muro de piedra y pasto: un respiro privado al centro de la casa.</p></div>
     </div>
   </div>
 </section>
@@ -235,9 +250,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <div class="wrap ubi">
     <div class="rv">
       <div class="kicker"><span class="num">04</span><span class="label">Ubicación</span></div>
-      <h2>Lomas Punta del Este</h2>
+      <h2>Lomas <span class="grad-text">Punta del Este</span></h2>
       <p>Privada Punta Peñasco, Punta Peñasco #154. Zona residencial en crecimiento al oriente de León, con acceso rápido a los corredores comerciales y vialidades principales de la ciudad.</p>
-      <a class="btn btn-ghost" style="margin-top:1.5rem" href="https://www.google.com/maps/search/?api=1&query=Punta+Pe%C3%B1asco+154%2C+Lomas+Punta+del+Este%2C+Le%C3%B3n%2C+Guanajuato" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      <a class="btn" style="margin-top:1.5rem" href="https://www.google.com/maps/search/?api=1&query=Punta+Pe%C3%B1asco+154%2C+Lomas+Punta+del+Este%2C+Le%C3%B3n%2C+Guanajuato" target="_blank" rel="noopener">Abrir en Google Maps</a>
     </div>
     <div class="map rv"><iframe title="Mapa de la zona" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
       src="https://maps.google.com/maps?q=21.1314842,-101.6039515&z=16&output=embed"></iframe></div>
@@ -248,14 +263,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <div class="wrap contact">
     <div class="rv">
       <div class="kicker"><span class="num">05</span><span class="label">Contacto</span></div>
-      <p class="lead">Agenda tu visita y conócela en persona.</p>
-      <p style="color:var(--stone);margin-top:1rem">Respuesta directa, sin intermediarios.</p>
-      <a class="btn beam wa" href="https://wa.me/524774064268?text=Hola%2C%20me%20interesa%20la%20casa%20de%20Punta%20Pe%C3%B1asco%20154%2C%20%C2%BFpodemos%20agendar%20una%20visita%3F" target="_blank" rel="noopener">
+      <p class="lead">Agenda tu visita y <span class="grad-text">conócela en persona.</span></p>
+      <p style="color:var(--muted);margin-top:1rem">Respuesta directa, sin intermediarios.</p>
+      <a class="btn wa" href="https://wa.me/524774064268?text=Hola%2C%20me%20interesa%20la%20casa%20de%20Punta%20Pe%C3%B1asco%20154%2C%20%C2%BFpodemos%20agendar%20una%20visita%3F" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-5.8-5.1c-.8-1.3-1-2.3-.8-2.9.1-.5.8-1.3 1.3-1.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .7a9 9 0 0 0 3.5 3.3c.3.1.5.1.7-.1l.8-.9c.2-.3.4-.3.7-.2l2 1c.3.1.5.2.5.4 0 .1 0 .7-.2 1.2z"/></svg>
         WhatsApp · 477 406 4268
       </a>
     </div>
-    <form class="rv" action="https://api.web3forms.com/submit" method="POST" id="leadform">
+    <form class="glass rv" action="https://api.web3forms.com/submit" method="POST" id="leadform">
       <!-- TODO: reemplazar con la access key real de web3forms.com -->
       <input type="hidden" name="access_key" value="TU_ACCESS_KEY_WEB3FORMS">
       <input type="hidden" name="subject" value="Nuevo interesado — Punta Peñasco 154">
@@ -263,7 +278,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <label>Nombre<input type="text" name="name" required autocomplete="name"></label>
       <label>Teléfono<input type="tel" name="phone" required autocomplete="tel" inputmode="tel"></label>
       <label>Mensaje (opcional)<textarea name="message" rows="3" placeholder="Me interesa agendar una visita…"></textarea></label>
-      <button class="btn beam" type="submit">Quiero más información</button>
+      <button class="btn btn-primary" type="submit">Quiero más información</button>
       <p class="form-ok" id="formok">Gracias — te contactamos muy pronto.</p>
     </form>
   </div>
@@ -272,7 +287,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <span>Punta Peñasco 154 · Lomas Punta del Este, León, Gto.</span>
-    <span>© 2026 · Venta directa · <a href="https://wa.me/524774064268" style="color:var(--gold)">477 406 4268</a></span>
+    <span>© 2026 · Venta directa · <a href="https://wa.me/524774064268">477 406 4268</a></span>
   </div>
 </footer>
 
@@ -283,19 +298,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <script>
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Titular: reveal palabra por palabra (una vez) */
 const h = document.getElementById('headline');
 h.innerHTML = h.textContent.trim().split(' ').map(w=>`<span class="w"><span>${w}</span></span>`).join(' ');
 if (!reduced && window.gsap){
   gsap.registerPlugin(ScrollTrigger);
   gsap.to('h1 .w > span',{y:0,duration:.9,ease:'power3.out',stagger:.07,delay:.2});
-  /* Parallax sutil en el hero (≤10%) */
   gsap.to('.hero-img img',{yPercent:8,ease:'none',scrollTrigger:{trigger:'header',start:'top top',end:'bottom top',scrub:true}});
-  /* Entradas de secciones */
   gsap.utils.toArray('.rv').forEach(el=>{
     gsap.to(el,{opacity:1,y:0,duration:.48,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});
   });
-  /* Galería: clip reveal escalonado por columnas */
   gsap.utils.toArray('#gal figure').forEach((f,i)=>{
     gsap.fromTo(f,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:.7,ease:'power3.out',delay:(i%4)*.1,scrollTrigger:{trigger:f,start:'top 88%'}});
   });
@@ -304,7 +315,6 @@ if (!reduced && window.gsap){
   document.querySelectorAll('h1 .w > span').forEach(s=>s.style.transform='none');
 }
 
-/* Flashlight dorado en cards (solo puntero fino) */
 if (matchMedia('(pointer:fine)').matches){
   document.querySelectorAll('.card').forEach(c=>{
     c.addEventListener('mousemove',e=>{
@@ -315,14 +325,12 @@ if (matchMedia('(pointer:fine)').matches){
   });
 }
 
-/* Lightbox */
 const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
 document.querySelectorAll('#gal img').forEach(img=>{
   img.closest('figure').addEventListener('click',()=>{lbimg.src=img.src;lbimg.alt=img.alt;lb.showModal()});
 });
 lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
 
-/* Form: envío sin salir de la página */
 const form=document.getElementById('leadform');
 form.addEventListener('submit',async e=>{
   e.preventDefault();
