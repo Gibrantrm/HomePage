@@ -45,6 +45,13 @@ Regla clave aprendida en revisión: el panel de vidrio NO va encima de la foto d
 - [ ] Verificar el pin del mapa: coords actuales `21.1314842,-101.6039515` (geocode del domicilio). Google también tiene la "Privada Punta Peñasco" como lugar en `21.1307783,-101.6016764` — confirmar con Gibran cuál es el punto correcto y actualizar el iframe
 - [x] Web3Forms: access key real puesta en `index.html` (input `access_key`) y probada el 2026-11-18 con un envío real (success). La key es pública por diseño (solo permite enviar al correo del dueño), por eso va en el HTML y no en un `.env`; Cloudflare Pages no necesita configuración para ella. Si el envío falla, el form avisa y manda a WhatsApp
 - [x] Config de Cloudflare en el repo (`wrangler.jsonc` + `.assetsignore`), verificada con `wrangler dev`: el sitio responde 200 y los `.md`, la config y `.git` dan 404
-- [ ] Conectar el repo en el dashboard de Cloudflare (Workers & Pages → importar repo de GitHub) y obtener la URL `*.workers.dev`
-- [ ] Con la URL final: poner `og:image` (y `og:url`) como URL absoluta para que la vista previa en WhatsApp muestre la foto
+- [x] Repo conectado a Cloudflare (Workers Builds). Cada push a `main` despliega solo; el resultado aparece como check "Workers Builds: homepage" en el commit de GitHub. Solo `main` dispara deploy (preview builds apagados)
+- [x] Dominio **puntapenasco154.com** (comprado en Cloudflare, 2026-11-18) + `www.puntapenasco154.com`, ambos en Production
+- [x] Vista previa para WhatsApp/redes: `og:image` absoluta a `img/og-fachada.jpg` (JPG 1200×630, recorte de la fachada con el atardecer), `og:url` y `canonical` al dominio final
+- [ ] Probar en el celular con datos móviles (no Wi-Fi de oficina) y mandar el link por WhatsApp para ver la vista previa
+- [ ] Opcional: redirigir `www` → raíz (Rules → Redirect Rules → plantilla "WWW to root")
+
+Nota para agentes: herramientas automáticas (curl, PowerShell, WebFetch de Claude/Gemini) reciben **403** del dominio por la protección anti-bots/anti-IA de Cloudflare. No es un error del sitio; verificar con un navegador real. En la PC de oficina de Gibran además hay un proxy Netskope que aísla dominios nuevos.
+
+Hero en móvil: `img/fachada-movil.webp` es cuadrada: cielo extendido con Gemini arriba + foto original intacta abajo (verificado pixel a pixel). Solo se usa en pantallas verticales vía `<picture>`; desktop usa `img/fachada.webp`.
 - [ ] Opcionales: plano arquitectónico como imagen extra, 2-3 fotos de día, video corto para redes, dominio propio
