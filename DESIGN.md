@@ -122,4 +122,4 @@ Sin pricing de planes, sin testimonios inventados, sin logos de marcas.
 
 Landing de una sola propiedad residencial premium en venta. Objetivo: agendar visitas. Audiencia: compradores llegando desde campañas en móvil (WhatsApp/Instagram).
 
-<!-- Basado en: designmd.app/library/liquid-glass · adaptado; v1.0 (oro/serif) vive en la rama main -->
+<!-- Basado en: designmd.app/library/liquid-glass · adaptado; v1.0 (oro/serif) descartada, recuperable del historial git en el commit f4171e8 -->

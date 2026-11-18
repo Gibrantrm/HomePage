@@ -18,9 +18,12 @@ Para el contexto completo del proyecto (decisiones tomadas, por qué este stack,
 
 ## Estructura
 
-- `index.html` — la landing completa (una sola página).
-- `css/` y `js/` — separar solo si crecen; mientras quepan legibles, inline está bien.
+- `index.html` — solo contenido y estructura (una sola página). Sin `<style>` ni `<script>` inline.
+- `css/styles.css` — todo el estilo (tokens en `:root`, receta `.glass`, layout, responsive, reduced-motion).
+- `js/main.js` — todo el comportamiento: animaciones GSAP, lightbox, flashlight de cards, envío del formulario. Script clásico (no `type="module"`) cargado al final del `<body>`: el `onclick="lb.close()"` del lightbox depende de que `lb` sea global.
 - `img/` — fotos de la propiedad en WebP/AVIF, optimizadas antes de commitear.
+
+Gotcha: los iconos de amenidades llevan `stroke="url(#iriGrad)"` como atributo en el HTML, no en el CSS. Un `url(#id)` dentro de un `.css` externo Safari puede resolverlo contra el archivo CSS y el icono pierde el degradado. No moverlo al CSS.
 
 ## Reglas de trabajo
 
