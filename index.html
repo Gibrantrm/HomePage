@@ -9,7 +9,8 @@
 <meta property="og:description" content="Una planta · 171.25 m² de terreno · 2 recámaras + estudio · Privada Punta Peñasco, Lomas Punta del Este.">
 <meta property="og:image" content="img/fachada.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E0E14'/%3E%3Cpath d='M16 7 7 14v11h18V14z' fill='none' stroke='%23A5B4FC' stroke-width='1.6'/%3E%3C/svg%3E">
-<link rel="preload" as="image" href="img/fachada.webp">
+<link rel="preload" as="image" href="img/fachada.webp" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" as="image" href="img/fachada-movil.webp" media="(max-aspect-ratio: 1/1)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -35,7 +36,10 @@
 </nav>
 
 <header id="inicio">
-  <div class="hero-img"><img src="img/fachada.webp" alt="Fachada de Punta Peñasco 154 al atardecer" fetchpriority="high"></div>
+  <div class="hero-img"><picture>
+    <source media="(max-aspect-ratio: 1/1)" srcset="img/fachada-movil.webp">
+    <img src="img/fachada.webp" alt="Fachada de Punta Peñasco 154 al atardecer" fetchpriority="high">
+  </picture></div>
   <div class="hero-panel">
     <p class="label">Privada Punta Peñasco · Lomas Punta del Este · León, Gto.</p>
     <h1 id="headline">Casa nueva, una planta, hecha para vivirse</h1>
