@@ -71,7 +71,7 @@ h1 .w span{display:inline-block;transform:translateY(110%)}
 @media(min-width:900px){.hero-panel{margin-left:max(1.5rem,calc((100vw - 1280px)/2 + 1.5rem))}}
 /* Pantallas verticales: la foto es 4:3 horizontal; a pantalla completa se recortaria ~60% de la fachada. Se muestra completa arriba y el texto debajo. */
 @media(max-aspect-ratio:1/1){
-  header{display:block;min-height:0;padding-top:86px}
+  header{display:block;min-height:0}
   .hero-img{position:relative;inset:auto}
   .hero-img img{height:auto}
   .hero-img::after{background:linear-gradient(180deg,rgba(14,14,20,.35) 0%,transparent 28%,transparent 72%,var(--bg) 100%)}
