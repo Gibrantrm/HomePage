@@ -7,7 +7,7 @@
   --blur:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -49,7 +49,9 @@ nav ul a:hover{color:var(--text)}
 .btn{position:relative;display:inline-flex;align-items:center;gap:.5rem;font:600 .9375rem var(--sans);padding:.9rem 1.8rem;border-radius:9999px;border:1px solid var(--stroke-hi);cursor:pointer;color:var(--text);background:var(--glass-2);backdrop-filter:blur(12px) saturate(1.5);-webkit-backdrop-filter:blur(12px) saturate(1.5);transition:transform .2s,box-shadow .25s,background .25s;overflow:hidden;isolation:isolate}
 .btn::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.22),transparent 45%);z-index:-1}
 .btn:hover{background:rgba(255,255,255,.14);box-shadow:0 8px 32px rgba(167,139,250,.25);transform:translateY(-1px)}
-.btn:active{transform:translateY(1px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+a:focus-visible,button:focus-visible{outline:2px solid #C4B5FD;outline-offset:3px}
+.gal figure:active img{transform:scale(1.02)}
 .btn-primary{border:0;color:#0E0E14;background:#fff}
 .btn-primary::before{content:"";position:absolute;inset:-2px;border-radius:9999px;background:var(--iri);z-index:-2;filter:blur(10px);opacity:0;transition:opacity .3s}
 .btn-primary:hover{background:#fff}
