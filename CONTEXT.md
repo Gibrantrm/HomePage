@@ -20,7 +20,7 @@ Regla clave aprendida en revisión: el panel de vidrio NO va encima de la foto d
 
 | Decisión | Elección | Por qué |
 |---|---|---|
-| Hosting | **Cloudflare Pages** (gratis) | Ancho de banda ilimitado y permite uso comercial. Vercel Hobby prohíbe uso comercial; Firebase Hosting tiene cuota diaria (~360MB/día); Netlify cambió a créditos confusos. |
+| Hosting | **Cloudflare Workers (static assets)** (gratis) | Ancho de banda ilimitado y permite uso comercial. Vercel Hobby prohíbe uso comercial; Firebase Hosting tiene cuota diaria (~360MB/día); Netlify cambió a créditos confusos. Se planeó Pages, pero el dashboard de Cloudflare ahora lleva a Workers por defecto; para un sitio estático es equivalente. |
 | Leads | **Web3Forms** (gratis, ~250/mes) + botón WhatsApp con mensaje prellenado | Sin backend. WhatsApp convierte mejor en inmobiliaria en México. |
 | Analytics | Cloudflare Web Analytics | Gratis, incluido en Pages. |
 | Código | HTML/CSS/JS estático + GSAP (CDN) | Una landing no necesita framework ni build. |
@@ -44,5 +44,7 @@ Regla clave aprendida en revisión: el panel de vidrio NO va encima de la foto d
 - [x] Código separado en HTML / CSS / JS, verificado en navegador (sin errores de consola, animaciones, lightbox y formulario funcionando)
 - [ ] Verificar el pin del mapa: coords actuales `21.1314842,-101.6039515` (geocode del domicilio). Google también tiene la "Privada Punta Peñasco" como lugar en `21.1307783,-101.6016764` — confirmar con Gibran cuál es el punto correcto y actualizar el iframe
 - [x] Web3Forms: access key real puesta en `index.html` (input `access_key`) y probada el 2026-11-18 con un envío real (success). La key es pública por diseño (solo permite enviar al correo del dueño), por eso va en el HTML y no en un `.env`; Cloudflare Pages no necesita configuración para ella. Si el envío falla, el form avisa y manda a WhatsApp
-- [ ] Conectar el repo a Cloudflare Pages (sin build command, output `/`)
+- [x] Config de Cloudflare en el repo (`wrangler.jsonc` + `.assetsignore`), verificada con `wrangler dev`: el sitio responde 200 y los `.md`, la config y `.git` dan 404
+- [ ] Conectar el repo en el dashboard de Cloudflare (Workers & Pages → importar repo de GitHub) y obtener la URL `*.workers.dev`
+- [ ] Con la URL final: poner `og:image` (y `og:url`) como URL absoluta para que la vista previa en WhatsApp muestre la foto
 - [ ] Opcionales: plano arquitectónico como imagen extra, 2-3 fotos de día, video corto para redes, dominio propio

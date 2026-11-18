@@ -11,7 +11,7 @@ Para el contexto completo del proyecto (decisiones tomadas, por qué este stack,
 ## Stack
 
 - HTML/CSS/JS estático, sin framework ni build step. GSAP + ScrollTrigger (CDN) solo para los efectos que DESIGN.md especifica.
-- Hosting: Cloudflare Pages, deploy automático desde este repo, rama `main`.
+- Hosting: Cloudflare Workers con static assets (sin código de Worker, solo archivos). Deploy automático en cada push a `main` (Workers Builds corre `npx wrangler deploy`). Config en `wrangler.jsonc`; `.assetsignore` evita que se publiquen los `.md`, la config y `.git`. Si agregas un archivo interno nuevo en la raíz, agrégalo a `.assetsignore`. Probar local tal como corre en Cloudflare: `npx wrangler dev`.
 - Formulario: Web3Forms (envío a correo, sin backend).
 - Analytics: Cloudflare Web Analytics.
 - No agregar dependencias nuevas sin preguntar al usuario.
