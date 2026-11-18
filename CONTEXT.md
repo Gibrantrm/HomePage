@@ -43,6 +43,6 @@ Regla clave aprendida en revisión: el panel de vidrio NO va encima de la foto d
 - [x] Landing v2 Liquid Glass elegida por Gibran, fusionada a `main`; rama `liquid-glass` eliminada
 - [x] Código separado en HTML / CSS / JS, verificado en navegador (sin errores de consola, animaciones, lightbox y formulario funcionando)
 - [ ] Verificar el pin del mapa: coords actuales `21.1314842,-101.6039515` (geocode del domicilio). Google también tiene la "Privada Punta Peñasco" como lugar en `21.1307783,-101.6016764` — confirmar con Gibran cuál es el punto correcto y actualizar el iframe
-- [ ] Web3Forms: crear cuenta, poner la access key real en el form (hoy dice `TU_ACCESS_KEY_WEB3FORMS`; el form hace fallback a WhatsApp si falla)
+- [x] Web3Forms: access key real puesta en `index.html` (input `access_key`) y probada el 2026-11-18 con un envío real (success). La key es pública por diseño (solo permite enviar al correo del dueño), por eso va en el HTML y no en un `.env`; Cloudflare Pages no necesita configuración para ella. Si el envío falla, el form avisa y manda a WhatsApp
 - [ ] Conectar el repo a Cloudflare Pages (sin build command, output `/`)
 - [ ] Opcionales: plano arquitectónico como imagen extra, 2-3 fotos de día, video corto para redes, dominio propio
